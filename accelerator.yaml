@@ -1,0 +1,47 @@
+accelerator:
+  displayName: DataProduct
+  description: "This accelerator provides a template to create a Data Product in .Net"
+  iconUrl: https://raw.githubusercontent.com/PradeepLoganathan/TAP-Application-Accelerators/main/dotnet-ml-accelerator/icon/continous-trainer.png
+  tags:
+    - "ML"
+    - "AI"
+    - "machinelearning"
+    - "datascience"
+    - "MLOps"
+    - "artificialintelligence"
+    - "dotnet"
+    - "continuoustraining"
+    - "modelbuilder"
+  options:
+    - name: dataURL
+      label: 'Training Data Repository'
+      description: The versioned workspace where the training data will be stored and version controlled.
+      dataType: string
+      inputType: text
+      defaultValue: "https://github.com/companyx/projecty/trainingdata"
+      required: true
+    - name: modelURL
+      label: 'Model Registry'
+      description: The model registry where the trained model will be stored and version controlled.
+      dataType: string
+      inputType: text
+      defaultValue: "https://github.com/companyx/projecty/modelrepo"
+      required: true
+    - name: modelName
+      label: 'Model Name'
+      description: The name of the model to be generated from training.
+      dataType: string
+      inputType: text
+      defaultValue: "PricingModel.Zip"
+      required: true
+engine:
+  type: Chain
+  transformations:
+    - type: Include
+      patterns: ['**']
+    - type: ReplaceText
+      substitutions:
+      - text: YOUR_MODEL_REPO_URL
+        with: "#modelURL"
+      - text: YOUR_MODEL_FILE_NAME
+        with: "#modelName"
