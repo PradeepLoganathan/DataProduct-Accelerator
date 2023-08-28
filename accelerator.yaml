@@ -1,39 +1,66 @@
 accelerator:
   displayName: DataProduct
   description: "This accelerator provides a template to create a Data Product in .Net"
-  iconUrl: https://raw.githubusercontent.com/PradeepLoganathan/TAP-Application-Accelerators/main/dotnet-ml-accelerator/icon/continous-trainer.png
+  iconUrl: https://github.com/PradeepLoganathan/DataProduct-Accelerator/blob/main/DataProduct.png
   tags:
-    - "ML"
-    - "AI"
-    - "machinelearning"
-    - "datascience"
-    - "MLOps"
-    - "artificialintelligence"
+    - "Dataproduct"
+    - "DataMesh"    
     - "dotnet"
-    - "continuoustraining"
-    - "modelbuilder"
   options:
-    - name: dataURL
-      label: 'Training Data Repository'
-      description: The versioned workspace where the training data will be stored and version controlled.
+    - name: dpName
+      label: 'Name'
+      description: The name of the dataproduct.
       dataType: string
       inputType: text
-      defaultValue: "https://github.com/companyx/projecty/trainingdata"
+      defaultValue: "sampledataproductname"
       required: true
-    - name: modelURL
-      label: 'Model Registry'
-      description: The model registry where the trained model will be stored and version controlled.
+    - name: dpDomain
+      label: 'Domain'
+      description: The dataproduct domain.
       dataType: string
       inputType: text
-      defaultValue: "https://github.com/companyx/projecty/modelrepo"
+      defaultValue: "domain"
       required: true
-    - name: modelName
-      label: 'Model Name'
-      description: The name of the model to be generated from training.
-      dataType: string
-      inputType: text
-      defaultValue: "PricingModel.Zip"
+    - name: dpDescription
+      label: 'Description'
+      description: The dataproduct description.      
       required: true
+    - choices:
+      - text: CartDB
+        value: "CartDB"
+      - text: CartLogs
+        value: "CartLogsDB"
+      - text: CartCache
+        value: "CartCacheDB"
+      defaultValue: "CartLogsDB"
+      inputType: select
+      label: Input Port
+      name: inputPort
+      required: false
+    - choices:
+      - text: ML Model
+        value: "MLModel"
+      - text: Event Stream
+        value: "EventStream"
+      - text: SQl
+        value: "SQl"
+      defaultValue: "MLModel"
+      inputType: select
+      label: Output Port - 1
+      name: outputPort1
+      required: false
+    - choices:
+      - text: ML Model
+        value: "MLModel"
+      - text: Event Stream
+        value: "EventStream"
+      - text: SQl
+        value: "SQl"
+      defaultValue: "MLModel"
+      inputType: select
+      label: Output Port - 2
+      name: outputPort2
+      required: false
 engine:
   type: Chain
   transformations:
