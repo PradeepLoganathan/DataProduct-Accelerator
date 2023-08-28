@@ -1,7 +1,7 @@
 accelerator:
   displayName: DataProduct
   description: "This accelerator provides a template to create a Data Product in .Net"
-  iconUrl: https://github.com/PradeepLoganathan/DataProduct-Accelerator/blob/main/DataProduct.png
+  iconUrl: https://raw.githubusercontent.com/PradeepLoganathan/DataProduct-Accelerator/main/DataProduct.png
   tags:
     - "Dataproduct"
     - "DataMesh"    
