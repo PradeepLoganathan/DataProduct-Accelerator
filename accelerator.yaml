@@ -61,14 +61,3 @@ accelerator:
       label: Output Port - 2
       name: outputPort2
       required: false
-engine:
-  type: Chain
-  transformations:
-    - type: Include
-      patterns: ['**']
-    - type: ReplaceText
-      substitutions:
-      - text: YOUR_MODEL_REPO_URL
-        with: "#modelURL"
-      - text: YOUR_MODEL_FILE_NAME
-        with: "#modelName"
